@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Loan Prediction</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="login">
+      <h1>Predict Loan Status</h1>
+      <form action="{{ url_for('predict')}}" method="post">
+        <input
+          type="text"
+          name="Credit_History"
+          placeholder="Credit History (Yes: 1/No: 0)"
+          required="required"
+        />
+        <input
+          type="text"
+          name="Married"
+          placeholder="Married (Yes: 1/No: 0)"
+          required="required"
+        />
+        <input
+          type="text"
+          name="CoapplicantIncome"
+          placeholder="Coapplicant Income"
+          required="required"
+        />
+        <input
+          type="text"
+          name="LoanAmount"
+          placeholder="Loan Amount"
+          required="required"
+        />
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Predict
+        </button>
+      </form>
+      <br />
+      <br />
+      <div class="prediction-text">
+        {{ prediction_text }}
+      </div>
+    </div>
+  </body>
+</html>
